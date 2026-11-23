@@ -20,16 +20,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Android SDK
-        run: |
-          mkdir -p "$ANDROID_HOME"
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses
-
       - name: Install Android SDK packages
         run: |
-          yes | sdkmanager --licenses
-          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
-
+         yes | sdkmanager --licenses
+         sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+    
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
